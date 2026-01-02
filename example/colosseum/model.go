@@ -51,10 +51,19 @@ type Model struct {
 // NewModel creates a new Model with the given orchestrator
 func NewModel(orchestrator *Orchestrator) Model {
 	ti := textinput.New()
+	ti.Prompt = ""
 	ti.Placeholder = "Type a message..."
 	ti.Focus()
 	ti.CharLimit = 4096
 	ti.Width = 80
+	ti.ShowSuggestions = true
+	ti.SetSuggestions([]string{
+		"/help",
+		"/status",
+		"/clear",
+		"/history",
+		"/exit",
+	})
 
 	s := spinner.New()
 	s.Spinner = spinner.Dot
@@ -409,7 +418,7 @@ func (m Model) renderInput() string {
 	}
 
 	input := "> " + m.input.View()
-	help := HelpStyle.Render("enter: send | esc: cancel | ctrl+c: quit | @claude/@gemini: direct")
+	help := HelpStyle.Render("enter: send | tab: complete | esc: cancel | ctrl+c: quit")
 
 	return InputStyle.Width(m.width).Render(status + input + "\n" + help)
 }
