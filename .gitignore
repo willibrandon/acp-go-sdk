@@ -8,3 +8,6 @@
 # Nix files
 .envrc
 .direnv
+
+# collosseum
+example/colosseum/colosseum

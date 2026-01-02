@@ -24,9 +24,9 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project directory at `example/colosseum/`
-- [ ] T002 Initialize Go module in `example/colosseum/go.mod`
-- [ ] T003 Add dependencies: bubbletea, bubbles, lipgloss in `example/colosseum/go.mod`
+- [x] T001 Create project directory at `example/colosseum/`
+- [x] T002 Initialize Go module in `example/colosseum/go.mod`
+- [x] T003 Add dependencies: bubbletea, bubbles, lipgloss in `example/colosseum/go.mod`
 
 ---
 
@@ -36,16 +36,16 @@
 
 **CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 [P] Create centralized styles in `example/colosseum/styles.go` per Constitution Principle V
-- [ ] T005 [P] Create key bindings in `example/colosseum/keys.go` per contracts/cli.md
-- [ ] T006 [P] Define message types (AgentChunkMsg, AgentCompleteMsg, AgentStatusMsg, PermissionRequestMsg) in `example/colosseum/messages.go`
-- [ ] T007 Implement Agent struct and interface in `example/colosseum/agent.go` per contracts/agent.go.md
-- [ ] T008 Implement ACP Client interface methods (SessionUpdate, RequestPermission) in `example/colosseum/agent.go` per research.md Section 4
-- [ ] T009 Implement agent subprocess spawning with stdin/stdout pipes in `example/colosseum/agent.go`
-- [ ] T010 Implement Connect(), Prompt(), Cancel(), Close() methods in `example/colosseum/agent.go`
-- [ ] T011 Implement Orchestrator struct with target parsing in `example/colosseum/orchestrator.go` per contracts/orchestrator.go.md
-- [ ] T012 Implement context formatting (BuildContext) in `example/colosseum/orchestrator.go`
-- [ ] T013 Implement sequential agent prompting (Send, NextAgent) in `example/colosseum/orchestrator.go`
+- [x] T004 [P] Create centralized styles in `example/colosseum/styles.go` per Constitution Principle V
+- [x] T005 [P] Create key bindings in `example/colosseum/keys.go` per contracts/cli.md
+- [x] T006 [P] Define message types (AgentChunkMsg, AgentCompleteMsg, AgentStatusMsg, PermissionRequestMsg) in `example/colosseum/messages.go`
+- [x] T007 Implement Agent struct and interface in `example/colosseum/agent.go` per contracts/agent.go.md
+- [x] T008 Implement ACP Client interface methods (SessionUpdate, RequestPermission) in `example/colosseum/agent.go` per research.md Section 4
+- [x] T009 Implement agent subprocess spawning with stdin/stdout pipes in `example/colosseum/agent.go`
+- [x] T010 Implement Connect(), Prompt(), Cancel(), Close() methods in `example/colosseum/agent.go`
+- [x] T011 Implement Orchestrator struct with target parsing in `example/colosseum/orchestrator.go` per contracts/orchestrator.go.md
+- [x] T012 Implement context formatting (BuildContext) in `example/colosseum/orchestrator.go`
+- [x] T013 Implement sequential agent prompting (Send, NextAgent) in `example/colosseum/orchestrator.go`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 
@@ -59,19 +59,19 @@
 
 ### Implementation for User Story 1
 
-- [ ] T014 [US1] Create Model struct with viewport, input, spinner, state in `example/colosseum/model.go` per data-model.md
-- [ ] T015 [US1] Implement Init() with agent connection commands in `example/colosseum/model.go`
-- [ ] T016 [US1] Implement View() with header (status indicators), viewport, and input in `example/colosseum/model.go`
-- [ ] T017 [US1] Implement Update() for WindowSizeMsg (responsive layout) in `example/colosseum/model.go`
-- [ ] T018 [US1] Implement Update() for KeyEnter (send message to orchestrator) in `example/colosseum/model.go`
-- [ ] T019 [US1] Implement Update() for AgentStatusMsg (connection updates) in `example/colosseum/model.go`
-- [ ] T020 [US1] Implement Update() for AgentChunkMsg (streaming append) in `example/colosseum/model.go`
-- [ ] T021 [US1] Implement Update() for AgentCompleteMsg (finalize, prompt next) in `example/colosseum/model.go`
-- [ ] T022 [US1] Implement Update() for spinner.TickMsg (animate during streaming) in `example/colosseum/model.go`
-- [ ] T023 [US1] Implement message rendering with role-based styling in `example/colosseum/model.go`
-- [ ] T024 [US1] Create main() with CLI flag parsing in `example/colosseum/main.go` per contracts/cli.md
-- [ ] T025 [US1] Implement Bubble Tea program initialization in `example/colosseum/main.go`
-- [ ] T026 [US1] Implement keyboard scrolling (arrows, PgUp/PgDn, Home/End) in `example/colosseum/model.go`
+- [x] T014 [US1] Create Model struct with viewport, input, spinner, state in `example/colosseum/model.go` per data-model.md
+- [x] T015 [US1] Implement Init() with agent connection commands in `example/colosseum/model.go`
+- [x] T016 [US1] Implement View() with header (status indicators), viewport, and input in `example/colosseum/model.go`
+- [x] T017 [US1] Implement Update() for WindowSizeMsg (responsive layout) in `example/colosseum/model.go`
+- [x] T018 [US1] Implement Update() for KeyEnter (send message to orchestrator) in `example/colosseum/model.go`
+- [x] T019 [US1] Implement Update() for AgentStatusMsg (connection updates) in `example/colosseum/model.go`
+- [x] T020 [US1] Implement Update() for AgentChunkMsg (streaming append) in `example/colosseum/model.go`
+- [x] T021 [US1] Implement Update() for AgentCompleteMsg (finalize, prompt next) in `example/colosseum/model.go`
+- [x] T022 [US1] Implement Update() for spinner.TickMsg (animate during streaming) in `example/colosseum/model.go`
+- [x] T023 [US1] Implement message rendering with role-based styling in `example/colosseum/model.go`
+- [x] T024 [US1] Create main() with CLI flag parsing in `example/colosseum/main.go` per contracts/cli.md
+- [x] T025 [US1] Implement Bubble Tea program initialization in `example/colosseum/main.go`
+- [x] T026 [US1] Implement keyboard scrolling (arrows, PgUp/PgDn, Home/End) in `example/colosseum/model.go`
 
 **Checkpoint**: User Story 1 complete - both agents respond to questions with streaming
 
@@ -85,9 +85,9 @@
 
 ### Implementation for User Story 2
 
-- [ ] T027 [US2] Implement ParseTarget() function in `example/colosseum/orchestrator.go` per research.md Section 5
-- [ ] T028 [US2] Update Send() to use parsed target in `example/colosseum/orchestrator.go`
-- [ ] T029 [US2] Add @both explicit directive support in `example/colosseum/orchestrator.go`
+- [x] T027 [US2] Implement ParseTarget() function in `example/colosseum/orchestrator.go` per research.md Section 5
+- [x] T028 [US2] Update Send() to use parsed target in `example/colosseum/orchestrator.go`
+- [x] T029 [US2] Add @both explicit directive support in `example/colosseum/orchestrator.go`
 
 **Checkpoint**: User Story 2 complete - @claude and @gemini directives work
 
@@ -101,10 +101,10 @@
 
 ### Implementation for User Story 3
 
-- [ ] T030 [US3] Implement connection failure handling in `example/colosseum/agent.go`
-- [ ] T031 [US3] Add warning message display for agent failures in `example/colosseum/model.go`
-- [ ] T032 [US3] Update orchestrator to skip unavailable agents in `example/colosseum/orchestrator.go`
-- [ ] T033 [US3] Handle exit when both agents fail (exit code 1) in `example/colosseum/main.go`
+- [x] T030 [US3] Implement connection failure handling in `example/colosseum/agent.go`
+- [x] T031 [US3] Add warning message display for agent failures in `example/colosseum/model.go`
+- [x] T032 [US3] Update orchestrator to skip unavailable agents in `example/colosseum/orchestrator.go`
+- [x] T033 [US3] Handle exit when both agents fail (exit code 1) in `example/colosseum/main.go`
 
 **Checkpoint**: User Story 3 complete - single agent mode works
 
@@ -118,11 +118,11 @@
 
 ### Implementation for User Story 4
 
-- [ ] T034 [US4] Implement :status command (show connection status) in `example/colosseum/model.go`
-- [ ] T035 [US4] Implement :clear command (clear viewport) in `example/colosseum/model.go`
-- [ ] T036 [US4] Implement :history command (display full history) in `example/colosseum/model.go`
-- [ ] T037 [US4] Implement :exit command (graceful shutdown) in `example/colosseum/model.go`
-- [ ] T038 [US4] Add command parsing helper for colon-prefixed inputs in `example/colosseum/model.go`
+- [x] T034 [US4] Implement :status command (show connection status) in `example/colosseum/model.go`
+- [x] T035 [US4] Implement :clear command (clear viewport) in `example/colosseum/model.go`
+- [x] T036 [US4] Implement :history command (display full history) in `example/colosseum/model.go`
+- [x] T037 [US4] Implement :exit command (graceful shutdown) in `example/colosseum/model.go`
+- [x] T038 [US4] Add command parsing helper for colon-prefixed inputs in `example/colosseum/model.go`
 
 **Checkpoint**: User Story 4 complete - session commands work
 
@@ -136,9 +136,9 @@
 
 ### Implementation for User Story 5
 
-- [ ] T039 [US5] Implement Update() for KeyEscape (cancel request) in `example/colosseum/model.go`
-- [ ] T040 [US5] Implement Cancel() coordination in `example/colosseum/orchestrator.go`
-- [ ] T041 [US5] Add cancellation context propagation in `example/colosseum/agent.go`
+- [x] T039 [US5] Implement Update() for KeyEscape (cancel request) in `example/colosseum/model.go`
+- [x] T040 [US5] Implement Cancel() coordination in `example/colosseum/orchestrator.go`
+- [x] T041 [US5] Add cancellation context propagation in `example/colosseum/agent.go`
 
 **Checkpoint**: User Story 5 complete - Escape cancels in-progress requests
 
@@ -148,10 +148,10 @@
 
 **Purpose**: Agent permission requests require user approval (or auto-approve with --yolo)
 
-- [ ] T042 Implement PermissionRequest struct and state in `example/colosseum/model.go`
-- [ ] T043 Implement permission dialog rendering in `example/colosseum/model.go`
-- [ ] T044 Implement permission selection handling in `example/colosseum/model.go`
-- [ ] T045 Implement auto-approve logic for --yolo flag in `example/colosseum/agent.go`
+- [x] T042 Implement PermissionRequest struct and state in `example/colosseum/model.go`
+- [x] T043 Implement permission dialog rendering in `example/colosseum/model.go`
+- [x] T044 Implement permission selection handling in `example/colosseum/model.go`
+- [x] T045 Implement auto-approve logic for --yolo flag in `example/colosseum/agent.go`
 
 ---
 
@@ -159,12 +159,12 @@
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T046 [P] Implement --debug flag logging to stderr in `example/colosseum/main.go`
-- [ ] T047 [P] Implement --no-color flag handling in `example/colosseum/styles.go`
-- [ ] T048 [P] Implement --timeout flag for agent response timeout in `example/colosseum/agent.go`
-- [ ] T049 [P] Implement Ctrl+C graceful exit in `example/colosseum/model.go`
-- [ ] T050 [P] Create README.md with usage documentation in `example/colosseum/README.md`
-- [ ] T051 Validate all quickstart.md test scenarios work
+- [x] T046 [P] Implement --debug flag logging to stderr in `example/colosseum/main.go`
+- [x] T047 [P] Implement --no-color flag handling in `example/colosseum/styles.go`
+- [x] T048 [P] Implement --timeout flag for agent response timeout in `example/colosseum/agent.go`
+- [x] T049 [P] Implement Ctrl+C graceful exit in `example/colosseum/model.go`
+- [x] T050 [P] Create README.md with usage documentation in `example/colosseum/README.md`
+- [x] T051 Validate all quickstart.md test scenarios work
 
 ---
 
