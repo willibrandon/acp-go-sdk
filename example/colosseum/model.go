@@ -198,7 +198,7 @@ func (m Model) handleKeyMsg(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 		m.input.Reset()
 
 		// Check for session commands
-		if cmd := m.handleCommand(input); cmd != nil {
+		if handled, cmd := m.handleCommand(input); handled {
 			return m, cmd
 		}
 
@@ -231,10 +231,10 @@ func (m Model) handleKeyMsg(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 	return m, cmd
 }
 
-func (m Model) handleCommand(input string) tea.Cmd {
+func (m *Model) handleCommand(input string) (bool, tea.Cmd) {
 	switch strings.ToLower(input) {
 	case ":exit", ":quit":
-		return tea.Quit
+		return true, tea.Quit
 	case ":status":
 		status := m.orchestrator.Status()
 		msg := fmt.Sprintf("Claude: %s, Gemini: %s",
@@ -243,17 +243,20 @@ func (m Model) handleCommand(input string) tea.Cmd {
 		m.orchestrator.AddSystemMessage(msg)
 		m.viewport.SetContent(m.renderMessages())
 		m.viewport.GotoBottom()
-		return nil
+		return true, nil
 	case ":clear":
 		m.orchestrator.ClearHistory()
 		m.viewport.SetContent("")
-		return nil
+		return true, nil
 	case ":history":
-		// Already showing history in viewport
+		history := m.orchestrator.History()
+		msg := fmt.Sprintf("History: %d messages", len(history))
+		m.orchestrator.AddSystemMessage(msg)
+		m.viewport.SetContent(m.renderMessages())
 		m.viewport.GotoTop()
-		return nil
+		return true, nil
 	default:
-		return nil
+		return false, nil
 	}
 }
 
