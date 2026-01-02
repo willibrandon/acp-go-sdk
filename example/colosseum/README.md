@@ -53,10 +53,11 @@ go build .
 
 | Command | Description |
 |---------|-------------|
-| `:status` | Show connection status for both agents |
-| `:clear` | Clear conversation viewport |
-| `:history` | Jump to top of history |
-| `:exit` | Exit the application |
+| `/help` | Show available commands |
+| `/status` | Show connection status for both agents |
+| `/clear` | Clear conversation viewport |
+| `/history` | Show message count and jump to top |
+| `/exit` | Exit the application |
 
 ## Keyboard Shortcuts
 

@@ -233,9 +233,24 @@ func (m Model) handleKeyMsg(msg tea.KeyMsg) (tea.Model, tea.Cmd) {
 
 func (m *Model) handleCommand(input string) (bool, tea.Cmd) {
 	switch strings.ToLower(input) {
-	case ":exit", ":quit":
+	case "/help":
+		help := `Commands:
+  /status  - Show agent connection status
+  /clear   - Clear conversation
+  /history - Show message count
+  /exit    - Quit application
+
+Directives:
+  @claude <msg>  - Ask only Claude
+  @gemini <msg>  - Ask only Gemini
+  @both <msg>    - Ask both (default)`
+		m.orchestrator.AddSystemMessage(help)
+		m.viewport.SetContent(m.renderMessages())
+		m.viewport.GotoBottom()
+		return true, nil
+	case "/exit", "/quit":
 		return true, tea.Quit
-	case ":status":
+	case "/status":
 		status := m.orchestrator.Status()
 		msg := fmt.Sprintf("Claude: %s, Gemini: %s",
 			statusText(status["claude"]),
@@ -244,11 +259,11 @@ func (m *Model) handleCommand(input string) (bool, tea.Cmd) {
 		m.viewport.SetContent(m.renderMessages())
 		m.viewport.GotoBottom()
 		return true, nil
-	case ":clear":
+	case "/clear":
 		m.orchestrator.ClearHistory()
 		m.viewport.SetContent("")
 		return true, nil
-	case ":history":
+	case "/history":
 		history := m.orchestrator.History()
 		msg := fmt.Sprintf("History: %d messages", len(history))
 		m.orchestrator.AddSystemMessage(msg)

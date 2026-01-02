@@ -35,10 +35,10 @@ Flags:
 
 | Command | Description |
 |---------|-------------|
-| `:status` | Display connection status for both agents |
-| `:history` | Display full conversation history |
-| `:clear` | Clear conversation history (viewport only, not agent context) |
-| `:exit` | Terminate session and exit |
+| `/status` | Display connection status for both agents |
+| `/history` | Display message count and jump to top |
+| `/clear` | Clear conversation history (viewport only, not agent context) |
+| `/exit` | Terminate session and exit |
 
 ## Message Routing Directives
 
